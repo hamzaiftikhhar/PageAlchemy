@@ -8,13 +8,14 @@ class Book < ApplicationRecord
   scope :in_print, -> { where(out_of_print: false) }
   scope :costs_more_than, ->(amount) { where("price > ?", amount) }
 
-
   
-def highlighted_reviews
+  def highlighted_reviews
   if reviews.count >= 2
     reviews
   else
     Review.none
   end
+  end
 end
-end
+
+
