@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_16_093113) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_17_130757) do
   create_table "authors", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "first_name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_16_093113) do
     t.string "isbn"
     t.boolean "out_of_print"
     t.decimal "price"
+    t.boolean "ssl_enabled", default: true
     t.integer "supplier_id", null: false
     t.string "title"
     t.datetime "updated_at", null: false
@@ -79,7 +80,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_16_093113) do
 
   create_table "suppliers", force: :cascade do |t|
     t.datetime "created_at", null: false
+    t.string "email"
     t.string "name"
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "system_settings", force: :cascade do |t|
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
