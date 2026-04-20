@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_17_130757) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_20_115658) do
   create_table "authors", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "first_name"
@@ -50,6 +50,14 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_17_130757) do
     t.string "title"
     t.datetime "updated_at", null: false
     t.integer "visits"
+  end
+
+  create_table "employees", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.integer "manager_id"
+    t.string "name"
+    t.datetime "updated_at", null: false
+    t.index ["manager_id"], name: "index_employees_on_manager_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -92,6 +100,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_17_130757) do
 
   add_foreign_key "books", "authors"
   add_foreign_key "books", "suppliers"
+  add_foreign_key "employees", "employees", column: "manager_id"
   add_foreign_key "orders", "customers"
   add_foreign_key "reviews", "books"
   add_foreign_key "reviews", "customers"
