@@ -18,5 +18,5 @@ class Book < ApplicationRecord
   end
   end
 
-  #this comment is just of the stagging 
+  #this comment is just of the ging 
 end
