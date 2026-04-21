@@ -17,4 +17,6 @@ class Book < ApplicationRecord
     Review.none #this is the bug 
   end
   end
+
+  #this comment is just of the stagging 
 end
