@@ -14,9 +14,7 @@ class Book < ApplicationRecord
   if reviews.count >= 2
     reviews
   else
-    Review.none #this is the bug 
+    Review.none 
   end
   end
-
-  #this comment is just of the ging 
 end
