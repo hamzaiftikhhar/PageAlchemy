@@ -1,8 +1,8 @@
 class Book < ApplicationRecord
   belongs_to :supplier
-  belongs_to :author, -> { includes(:author.name) } #is it correct? This is scope function that includes the associated author records when querying for books. It allows you to access the author's name directly from the book object without triggering additional database queries. For example, you can do book.author.name without causing an N+1 query problem.
+  belongs_to :author  
 
-  has_many :reviews
+  has_many :reviews   
   has_and_belongs_to_many :orders
 
   scope :in_print, -> { where(out_of_print: false) } #This is the scope function
